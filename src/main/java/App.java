@@ -16,7 +16,7 @@ public class App {
 
     List<Category> list2 =  findCategory(3);
     for (Category c : list2) {
-      System.out.printf("Sản phẩm tìm được là: %s\n", c.getName());
+      System.out.printf("Sản phẩm tìm được với mã %d là: %s\n", c.getId(), c.getName());
     }
   }
 
