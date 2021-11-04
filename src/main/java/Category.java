@@ -2,11 +2,11 @@ public class Category {
   private int CatId;
   private String CatName;
 
-  public int getId() {
+  public int getCatId() {
     return CatId;
   }
 
-  public String getName() {
+  public String getCatName() {
     return CatName;
   }
 }
