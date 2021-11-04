@@ -18,8 +18,8 @@ public class App {
     for (Category c : list2) {
       System.out.printf("Sản phẩm tìm được với mã %d là: %s\n", c.getCatId(), c.getCatName());
     }
-
-    insertCategory(4,"Bút chì của JohnWick");
+    updateCategory(4,"Thước bảng của Lão Tôn");
+    //insertCategory(4,"Bút chì của JohnWick");
   }
 
   public static List<Category> findAll() {
@@ -50,6 +50,19 @@ public class App {
       con.createQuery(insertSql)
               .addParameter("catid", catid)
               .addParameter("catname", catname)
+              .executeUpdate();
+    }
+  }
+
+  public static void updateCategory(int catid, String catname) {
+    Sql2o sql2o = new Sql2o("jdbc:mysql://localhost:3306/qlbh", "root", "");
+
+    String updateSql = "update categories set CatName = :catname where CatID = :catid";
+
+    try (Connection con = sql2o.open()) {
+      con.createQuery(updateSql)
+              .addParameter("catname", catname)
+              .addParameter("catid", catid)
               .executeUpdate();
     }
   }
